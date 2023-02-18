@@ -19,7 +19,13 @@ def MilitaryTimeConverter(time):
         hours=0
     if len(list(str(hours)))==1 and hours!=0:
         military_time.append("zero")
-    military_time.append(time_dict[hours])
+    elif len(list(str(hours)))==2 and int(hours)>19:
+
+        military_time.append(time_dict[int(list(str(hours))[0])*10])
+        if list(str(hours))[1]!='0':
+            military_time.append(time_dict[int(list(str(hours))[1])])
+    elif len(minutes)==2 and int(hours)<20:
+        military_time.append(time_dict[int(hours)])
 
 
     if minutes[0]=='0':
